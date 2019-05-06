@@ -1,0 +1,862 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><link href="favicon.ico" rel="shortcut icon"/><title>山东省环境保护厅-环境监察-案件查处</title><link href="http://www.sdein.gov.cn/images/sdhbt.css" rel="stylesheet" type="text/css"/><script language="javascript" src="http://www.sdein.gov.cn/images/jquery.js"></script><script language="JavaScript">
+ 
+function Turn(count,_sPageName, _sPageExt)
+{
+	var aa=_sPageName,bb=_sPageExt,page=parseInt(document.getElementById("page").value)
+	if(isNaN(page))page=1
+	if(page<1)page=1
+	if(page>count)page=count
+	if(page==1)
+		window.location.href=aa+'.'+bb
+	else
+		window.location.href=aa+'_'+(page-1)+'.'+bb
+}
+ 
+function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt){
+	if(_nPageCount == null || _nPageCount<=1){
+		return;
+	}
+	document.write("共有 "+_nPageCount+" 页，本页是第 "+(_nCurrIndex+1)+" 页    ");
+	var nCurrIndex = _nCurrIndex || 0;
+	if(nCurrIndex == 0)
+	{
+		document.write("首页&nbsp;");
+		document.write("上一页&nbsp;");
+		document.write("<a href=\""+_sPageName+"_" + (nCurrIndex+1) + "."+_sPageExt+"\">下一页</a>&nbsp;");
+		document.write("<a href=\""+_sPageName+"_" + (_nPageCount-1) + "."+_sPageExt+"\">末页</a>&nbsp;");
+	}
+	else
+	{
+		if(nCurrIndex == _nPageCount-1)
+		{
+		document.write("<a href=\""+_sPageName+ "."+_sPageExt+"\">首页</a>&nbsp;");
+		
+		if(nCurrIndex==1)document.write("<a href=\""+_sPageName+ "."+_sPageExt+"\">上一页</a>&nbsp;");else{document.write("<a href=\""+_sPageName+"_" + (nCurrIndex-1) + "."+_sPageExt+"\">上一页</a>&nbsp;");}
+		document.write("下一页&nbsp;");
+		document.write("末页&nbsp;");
+ 
+		}
+		else
+		{
+		document.write("<a href=\""+_sPageName + "."+_sPageExt+"\">首页</a>&nbsp;");
+		
+		if(nCurrIndex==1)document.write("<a href=\""+_sPageName+ "."+_sPageExt+"\">上一页</a>&nbsp;");else{document.write("<a href=\""+_sPageName+"_" + (nCurrIndex-1) + "."+_sPageExt+"\">上一页</a>&nbsp;");}		
+		document.write("<a href=\""+_sPageName+"_" + (nCurrIndex+1) + "."+_sPageExt+"\">下一页</a>&nbsp;");
+		document.write("<a href=\""+_sPageName+"_" + (_nPageCount-1) + "."+_sPageExt+"\">末页</a>&nbsp;");
+		}
+	}
+    
+	document.write("跳转到<input name='page' type='text' size='3' /> 页<input type='button' name='Submit' value='go' onclick=\"Turn('"+_nPageCount+"','"+_sPageName+"','"+_sPageExt+"')\"\ />")
+ 
+}
+</script></head><body>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<script>
+     function gook() {
+	document.all.login.pwhidden.value = encode(document.all.login.pwshow.value, parseInt(document.all.login.picnum.value));
+ 
+	document.all.forlogin.submit();
+}
+ 
+function encode(datastr, bassnum) {
+	var tempstr;
+	var tchar;
+	var newdata = "";
+ 
+	for (var i = 0; i < datastr.length; i++)
+	{
+		tchar = 65535 + bassnum - datastr.charCodeAt(i);
+		tchar = tchar.toString();
+ 
+		while(tchar.length < 5)
+		{
+			tchar = "0" + tchar;
+		}
+ 
+		newdata = newdata + tchar;
+	}
+ 
+	return newdata;
+}
+
+
+   </script>
+<tr>
+<td background="../../images/sdhb_01.gif" height="26"><table align="center" border="0" cellpadding="0" cellspacing="0" width="960">
+<tr>
+<td height="26" width="35%"><a class="gray12" href="javascript:void(0);" href_bak="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.sdein.gov.cn');">设为首页</a><a class="gray12" href="javascript:void(0);" href_bak="javascript:addBookmark(document.title)"> 加入收藏</a><a class="gray12" href="javascript:void(0);" href_bak="http://weibo.com/u/3354394424" style=" background:url(../../images/sinaweibo.gif) no-repeat left; margin-left:20px; padding-left:20px;" target="_blank">政务微博</a><a class="gray12" href="javascript:void(0);" href_bak="../../xcjy/zwwx/" style=" background:url(http://www.sdein.gov.cn/images/wechat.png) no-repeat left; margin-left:20px; padding-left:20px;padding-top: 2px;">政务微信</a><a class="gray12" href="javascript:void(0);" href_bak="http://1.202.247.200/netreport/netreport/index" style=" background:url(./images/jia.png) no-repeat left; margin-left:20px; padding-left:20px;" target="_blank">“12369”网络举报平台</a></td>
+<!--<td align="right">
+            <TABLE cellSpacing=0 cellPadding=0 align=right border=0>
+                <form action="http://mail.sdein.gov.cn/login.php?forweb=1" method="post" name="login" target="_blank">
+                <TBODY>
+                <TR>
+                
+
+                <TD vAlign=middle align=center width=60 class="gray_text12">用户名</TD>
+                <TD><INPUT style="HEIGHT: 12px; font-size:12px" size=7 name=F_email /> <input type="hidden" name=F_domain value=sdein.gov.cn /></TD>
+                <TD vAlign=middle align=center width=45 class="gray_text12">密码</TD>
+                <TD><INPUT style="HEIGHT: 12px; font-size:12px" type=password size=7 name=F_password /> <INPUT type=hidden value=7652 name=picnum /></TD>
+                <TD vAlign=middle align=center width=70><input type="image" height=19 width=58 src="../../images/yxdl.gif" border=0 onclick="javascript:gook()" /></TD>
+                <TD style="CURSOR: hand;" onclick="javascript:document.all.login.reset();" vAlign=middle align=center><IMG height=19 width=45 src="../../images/mail_reset.gif" border=0 /> </TD></TR>
+                </FORM>
+                </TBODY>
+             </TABLE>
+        </td>-->
+<td align="right" width="15%"><a class="gray12" href="javascript:void(0);" href_bak="http://wap.sdein.gov.cn/" target="_blank">WAP版</a> <a class="gray12" href="javascript:void(0);" href_bak="http://www.sdein.gov.cn/wzdt/" target="_blank">网站地图</a></td>
+</tr>
+</table></td>
+</tr>
+</table>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="1001">
+<tr>
+<td>
+<embed height="171" pluginspage="http://www.macromedia.com/go/getflashplayer" quality="high" src="../../images/top.swf" type="application/x-shockwave-flash" width="1001" wmode="transparent"></embed>
+</td>
+</tr>
+<tr>
+<td>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="1001">
+<tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="1001">
+<tr>
+<td width="86"><img border="0" height="83" src="http://www.sdein.gov.cn/images/sdhb_02.gif" usemap="#Map" width="86"/></td>
+<td width="198"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="48"><img border="0" height="83" src="http://www.sdein.gov.cn/images/sdhb_03.gif" usemap="#Map2" width="48"/></td>
+<td background="../../images/sdhb_03_1.gif"><table align="right" border="0" cellpadding="0" cellspacing="0" width="96%">
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="../../jggk/dwzz/" target="_blank">单位职责</a></td>
+<td><a class="white12" href="javascript:void(0);" href_bak="../../jggk/ldjj/" target="_blank">领导简介</a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="../../jggk/jgcs/" target="_blank">机关处室</a></td>
+<td><a class="white12" href="javascript:void(0);" href_bak="../../jggk/zsdw/" target="_blank">直属单位</a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="../../jggk/lxfs/" target="_blank">联系方式</a></td>
+<td></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+<td width="229"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="72"><img border="0" height="83" src="http://www.sdein.gov.cn/images/sdhb_04.gif" usemap="#Map3" width="72"/></td>
+<td background="../../images/sdhb_04_1.gif"><table align="right" border="0" cellpadding="0" cellspacing="0" width="96%">
+<tr>
+<td height="20" width="51%"><a class="white12" href="javascript:void(0);" href_bak="http://xxgk.sdein.gov.cn/xxgkzn/" target="_blank">公开指南</a></td>
+<td width="49%"><a class="white12" href="javascript:void(0);" href_bak="http://xxgk.sdein.gov.cn/xxgkml/" target="_blank">公开目录</a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="http://222.173.12.137:8080/apply/sqgk/applyform_add.html" target="_blank">依申请公开</a></td>
+<td><a class="white12" href="javascript:void(0);" href_bak="http://xxgk.sdein.gov.cn/xxgkndbg/" target="_blank">公开年报</a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="http://xxgk.sdein.gov.cn/zfwj/" target="_blank">政府文件</a></td>
+<td><a class="white12" href="javascript:void(0);" href_bak="http://www.sdein.gov.cn/wcm/WCMV6/gkml/sqgk/applyform_query.jsp" target="_blank">申请反馈</a></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+<td width="226"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="77"><img border="0" height="83" src="http://www.sdein.gov.cn/images/sdhb_05.gif" usemap="#Map4" width="77"/></td>
+<td background="../../images/sdhb_05_1.gif"><table align="right" border="0" cellpadding="0" cellspacing="0" width="96%">
+<tr>
+<td height="20" width="51%"><a class="white12" href="javascript:void(0);" href_bak="../../zxbs/bszn/" target="_blank">办理指南</a></td>
+<td width="49%"><a class="white12" href="javascript:void(0);" href_bak="http://zwfw.sd.gov.cn/sdzw/dept/query.do?orgcode=SD370000HB" target="_blank">在线申报</a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="http://zwfw.sd.gov.cn/sdzw/dept/query.do?orgcode=SD370000HB" target="_blank">在线查询</a></td>
+<td><a class="white12" href="javascript:void(0);" href_bak="../../zxbs/gszx/" target="_blank">公示中心 </a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="../../zxbs/xzzx/" target="_blank">下载中心</a></td>
+<td><a class="white12" href="javascript:void(0);" href_bak="http://www.sdein.gov.cn/hdyy/hdyy.jsp?channelid=1039" target="_blank">在线咨询</a></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+<td width="216"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td width="75"><img border="0" height="83" src="http://www.sdein.gov.cn/images/sdhb_06.gif" usemap="#Map5" width="75"/></td>
+<td background="../../images/sdhb_06_1.gif"><table align="right" border="0" cellpadding="0" cellspacing="0" width="96%">
+<tr>
+<td height="20" width="51%"><a class="white12" href="javascript:void(0);" href_bak="../../hdjl/wsdc/" target="_blank">网上调查</a></td>
+<td width="49%"><a class="white12" href="javascript:void(0);" href_bak="../../hdjl/myzj/" target="_blank">民意征集</a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="../../hdjl/zxft/" target="_blank">在线访谈</a></td>
+<td><a class="white12" href="javascript:void(0);" href_bak="http://www.sdein.gov.cn/hdyy/hdyy.jsp?channelid=1043" target="_blank">您的建议</a></td>
+</tr>
+<tr>
+<td height="20"><a class="white12" href="javascript:void(0);" href_bak="../../hdjl/bgt/" target="_blank">曝光台</a></td>
+<td></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+<td><img height="83" src="http://www.sdein.gov.cn/images/sdhb_07.gif" width="46"/></td>
+</tr>
+</table></td>
+</tr>
+<map id="Map" name="Map"><area coords="14,13,73,74" href="http://www.sdein.gov.cn/" shape="rect"></area></map>
+<map id="Map2" name="Map2"><area coords="4,12,45,72" href="http://www.sdein.gov.cn/jggk/" shape="rect"></area></map>
+<map id="Map3" name="Map3"><area coords="23,11,75,70" href="http://xxgk.sdein.gov.cn/" shape="rect"></area></map>
+<map id="Map4" name="Map4"><area coords="25,10,81,71" href="http://www.sdein.gov.cn/zxbs/" shape="rect"></area></map>
+<map id="Map5" name="Map5"><area coords="26,10,90,71" href="http://www.sdein.gov.cn/hdjl/" shape="rect"></area></map>
+</table>
+</td>
+</tr>
+<tr>
+<td height="7"></td>
+</tr>
+<tr>
+<td><table border="0" cellpadding="0" cellspacing="0" class="bk" width="100%">
+<tr>
+<td bgcolor="#f9f9f9" height="32">
+<script language="javascript" src="http://www.sdein.gov.cn/images/datetime.js"></script>
+<script>
+function checksubmitinfo(){
+				if(searchForm.keyword.value==""||searchForm.keyword.value<1){
+					alert("请您输入要搜索的关键字或标题!");
+					
+					return false;
+				}else{
+				
+					 searchForm.searchword.value = searchForm.keyword.value;
+					 url = "http://www.sdein.gov.cn/was/web/search?channelid=211507&modal=1&searchword="+encodeURIComponent(searchForm.searchword.value);
+		            window.open(url,"","");
+					  return false;		
+					}
+							
+					
+				}
+</script>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="94%">
+<tr>
+<td width="60%"><table border="0" cellpadding="0" cellspacing="0" width="90%">
+<tr>
+<td width="3%"><img height="5" src="http://www.sdein.gov.cn/images/sdhb_11.gif" width="3"/></td>
+<td width="50%">
+<script>solarday();
+					function solarday(){
+						
+
+					var now = new Date();
+					var sdobj = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+					var ldobj = new lunar(sdobj);
+					var cl = '';
+					var tt = cday(ldobj.month,ldobj.day);
+					document.write("<span class='gray_text12'> "+now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日"+ weekday +" </span>");
+					}
+                </script>
+</td>
+<td width="47%"><!--<iframe height="20" marginheight="0" src="http://m.weather.com.cn/m/pn7/weather.htm?id=101120101T" frameborder="0" width="195" marginwidth="0" scrolling="no" style="filter: chroma(color=#ffffff)"></iframe>-->
+</td>
+</tr>
+</table></td>
+<form action="http://www.sdein.gov.cn/was/web/search" id="searchForm" method="post" onsubmit="return checksubmitinfo();">
+<td width="40%"><table align="right" border="0" cellpadding="0" cellspacing="0" width="287">
+<tr>
+<td align="center" style="padding-top:1px;" valign="top" width="77%"><label>
+<input id="searchword" name="searchword" type="hidden"/>
+<input name="channelid" type="hidden" value="270368"/>
+<input id="keyword" name="keyword" style="width:77%; border:2; font-size:12px;" type="text"/>
+</label></td>
+<td width="23%"><input border="0" height="19" src="../../images/sdhb_97.gif" type="image" width="54"/></td>
+</tr>
+</table></td>
+</form>
+</tr>
+</table>
+</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="4"></td>
+</tr>
+<tr>
+<td width="100%"><table align="left" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" width="25"><img height="10" src="http://www.sdein.gov.cn/images/sdhb_101.gif" width="9"/></td>
+<td><span class="gray_text12">当前位置：<a class="CurrChnlCls" href="javascript:void(0);" href_bak="../../" title="首页">首页</a> &gt; <a class="CurrChnlCls" href="javascript:void(0);" href_bak="../" title="环境监察">环境监察</a> &gt; <a class="CurrChnlCls" href="javascript:void(0);" href_bak="./" title="案件查处">案件查处</a></span></td>
+<td width="10"></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="4"></td>
+</tr>
+<tr>
+<td valign="top"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="top"><table border="0" cellpadding="0" cellspacing="0" width="225">
+<tr>
+<td><img height="53" src="http://www.sdein.gov.cn/images/P020120622431636119414.gif" width="225"/></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_149.gif" valign="top"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td> </td>
+</tr>
+</table>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="201">
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../pwsf/"> <span id="1063">排污收费</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../hjjc_1062/"> <span id="1062">应急监察</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="./"> <span id="1067">案件查处</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../stjc/"> <span id="1065">生态监察</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../xmjc/"> <span id="1064">环境巡查</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../hjjc/"> <span id="1066">监察稽查</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../zhzf/"> <span id="2444">综合执法</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../jcxx/"> <span id="1061">监察信息</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td background="../../images/sdhb_151.gif" height="30"><table align="right" border="0" cellpadding="0" cellspacing="0" width="85%">
+<tr>
+<td><a href="javascript:void(0);" href_bak="../zhyw/"> <span id="2355">动态信息</span></a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td height="60"></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><img height="229" src="http://www.sdein.gov.cn/images/sdhb_150.gif" width="225"/></td>
+</tr>
+</table></td>
+<td valign="top"><table align="right" border="0" cellpadding="0" cellspacing="0" width="763">
+<tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td height="28" width="50%"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" width="11%"><img height="14" src="http://www.sdein.gov.cn/images/sdhb_99.gif" width="13"/></td>
+<td class="blue_text14" width="89%"><strong>案件查处 </strong></td>
+</tr>
+</table></td>
+<td width="50%"></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td height="12" width="72"><img height="13" src="http://www.sdein.gov.cn/images/sdhb_102.gif" width="72"/></td>
+<td background="../../images/sdhb_103.gif" height="13" width="690"></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td valign="top"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td height="10"></td>
+</tr>
+</table>
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="96%">
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201703/t20170329_305787.html" target="_blank" title="2017年山东省砖瓦行业环保专项行动排查情况">2017年山东省砖瓦行业环保专项行动排查情况</a></td>
+<td align="center" class="date14" width="15%">2017-03-29</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201612/t20161228_302995.html" target="_blank" title="关于核实2015年重点环境案件处罚整改情况的公示">关于核实2015年重点环境案件处罚整改情况的公示</a></td>
+<td align="center" class="date14" width="15%">2016-12-28</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201610/t20161014_300419.html" target="_blank" title="01012369环保举报热线2016年7月群众举报案件情况表">01012369环保举报热线2016年7月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-10-14</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201609/t20160907_299396.html" target="_blank" title="01012369环保举报热线2016年6月群众举报案件情况表">01012369环保举报热线2016年6月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-09-07</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201609/t20160907_299384.html" target="_blank" title="01012369环保举报热线2016年5月群众举报案件情况表">01012369环保举报热线2016年5月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-09-07</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201607/t20160725_297732.html" target="_blank" title="01012369环保举报热线2016年4月群众举报案件情况表">01012369环保举报热线2016年4月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-07-25</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201605/t20160530_295541.html" target="_blank" title="01012369环保举报热线2016年3月群众举报案件情况表">01012369环保举报热线2016年3月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-05-30</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201605/t20160504_294356.html" target="_blank" title="01012369环保举报热线2016年2月群众举报案件情况表">01012369环保举报热线2016年2月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-05-04</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201605/t20160504_294355.html" target="_blank" title="01012369环保举报热线2016年1月群众举报案件情况表">01012369环保举报热线2016年1月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-05-04</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201603/t20160316_292362.html" target="_blank" title="01012369环保举报热线2015年12月群众举报案件情况表">01012369环保举报热线2015年12月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-03-16</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201603/t20160316_292361.html" target="_blank" title="01012369环保举报热线2015年11月群众举报案件情况表">01012369环保举报热线2015年11月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-03-16</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201601/t20160106_289751.html" target="_blank" title="01012369环保举报热线2015年10月群众举报案件情况表">01012369环保举报热线2015年10月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2016-01-06</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201512/t20151228_289424.html" target="_blank" title="2015年前三季度重点信访案件后督察和独立调查情况">2015年前三季度重点信访案件后督察和独立调查情况</a></td>
+<td align="center" class="date14" width="15%">2015-12-28</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201512/t20151225_289338.html" target="_blank" title="01012369环保举报热线2015年9月群众举报案件情况表">01012369环保举报热线2015年9月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-12-25</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201512/t20151225_289337.html" target="_blank" title="01012369环保举报热线2015年8月群众举报案件情况表">01012369环保举报热线2015年8月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-12-25</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201512/t20151225_289336.html" target="_blank" title="01012369环保举报热线2015年7月群众举报案件情况表">01012369环保举报热线2015年7月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-12-25</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201509/t20150915_284713.html" target="_blank" title="01012369环保举报热线2015年6月群众举报案件情况表">01012369环保举报热线2015年6月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-09-15</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201509/t20150915_284712.html" target="_blank" title="01012369环保举报热线2015年5月群众举报案件情况表">01012369环保举报热线2015年5月群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-09-15</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201509/t20150915_284711.html" target="_blank" title="山东省环境监察总队关于印发2015年1-6月份环境信访案件受理情况通报的函">山东省环境监察总队关于印发2015年1-6月份环境信访案件受理情况通报的函</a></td>
+<td align="center" class="date14" width="15%">2015-09-15</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201508/t20150805_282741.html" target="_blank" title="2015年4月“01012369”群众举报案件情况表">2015年4月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-08-05</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201508/t20150805_282740.html" target="_blank" title="2015年3月“01012369”群众举报案件情况表">2015年3月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-08-05</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201508/t20150805_282739.html" target="_blank" title="2015年2月“01012369”群众举报案件情况表">2015年2月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-08-05</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201508/t20150805_282737.html" target="_blank" title="2015年1月“01012369”群众举报案件情况表">2015年1月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-08-05</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278896.html" target="_blank" title="2014年12月“01012369”群众举报案件情况表">2014年12月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278895.html" target="_blank" title="2014年11月“01012369”群众举报案件情况表">2014年11月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278894.html" target="_blank" title="2014年10月“01012369”群众举报案件情况表">2014年10月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278893.html" target="_blank" title="2014年9月“01012369”群众举报案件情况表">2014年9月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278892.html" target="_blank" title="2014年8月“01012369”群众举报案件情况表">2014年8月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278890.html" target="_blank" title="山东省环境监察总队关于印发2014年7-12月份环境信访案件受理情况通报的函">山东省环境监察总队关于印发2014年7-12月份环境信访案件受理情况通报的函</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278889.html" target="_blank" title="关于印发《山东省环境监察总队2014年1-6月份环境信访案件受理情况通报》的函">关于印发《山东省环境监察总队2014年1-6月份环境信访案件受理情况通报》的函</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201505/t20150522_278885.html" target="_blank" title="2014年7-12月份环境信访案件受理情况通报">2014年7-12月份环境信访案件受理情况通报</a></td>
+<td align="center" class="date14" width="15%">2015-05-22</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141013_266991.html" target="_blank" title="2014年7月“01012369”群众举报案件情况表">2014年7月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2014-10-13</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141010_266818.html" target="_blank" title="关于印发《山东省环境监察总队2013年度环境信访舆情案件受理情况通报》的函">关于印发《山东省环境监察总队2013年度环境信访舆情案件受理情况通报》的函</a></td>
+<td align="center" class="date14" width="15%">2014-10-10</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141009_266612.html" target="_blank" title="2014年6月“01012369”群众举报案件情况表">2014年6月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2014-10-09</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141009_266611.html" target="_blank" title="2014年5月“01012369”群众举报案件情况表">2014年5月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2014-10-09</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141009_266610.html" target="_blank" title="2014年4月“01012369”群众举报案件情况表">2014年4月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2014-10-09</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141009_266609.html" target="_blank" title="2014年3月“01012369”群众举报案件情况表">2014年3月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2014-10-09</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141009_266608.html" target="_blank" title="2014年2月“01012369”群众举报案件情况表">2014年2月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2014-10-09</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201410/t20141009_266607.html" target="_blank" title="2014年1月“01012369”群众举报案件情况表">2014年1月“01012369”群众举报案件情况表</a></td>
+<td align="center" class="date14" width="15%">2014-10-09</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201409/t20140910_263811.html" target="_blank" title="山东省环境保护厅关于建立行政边界地区环境执法联动工作机制的意见">山东省环境保护厅关于建立行政边界地区环境执法联动工作机制的意见</a></td>
+<td align="center" class="date14" width="15%">2014-09-10</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201409/t20140910_263807.html" target="_blank" title="关于2013年全省重点环境违法案件后督察行动的报告">关于2013年全省重点环境违法案件后督察行动的报告</a></td>
+<td align="center" class="date14" width="15%">2014-09-10</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201409/t20140910_263804.html" target="_blank" title="山东省环境监察总队2012年度环境信访受理情况通报">山东省环境监察总队2012年度环境信访受理情况通报</a></td>
+<td align="center" class="date14" width="15%">2014-09-10</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201405/t20140509_256538.html" target="_blank" title="2011年第4季度环境信访受理情况通报">2011年第4季度环境信访受理情况通报</a></td>
+<td align="center" class="date14" width="15%">2014-05-09</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201112/t20111221_177625.html" target="_blank" title="2011年第3季度环境信访受理情况通报">2011年第3季度环境信访受理情况通报</a></td>
+<td align="center" class="date14" width="15%">2011-12-21</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201111/t20111104_177624.html" target="_blank" title="2011年第2季度环境信访受理情况通报">2011年第2季度环境信访受理情况通报</a></td>
+<td align="center" class="date14" width="15%">2011-11-04</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+<tr>
+<td align="center" height="26" width="5%"><img height="3" src="http://www.sdein.gov.cn/images/sdhb_104.gif" width="3"/></td>
+<td width="80%"><a href="javascript:void(0);" href_bak="./201111/t20111104_177623.html" target="_blank" title="2011年第1季度环境信访受理情况通报">2011年第1季度环境信访受理情况通报</a></td>
+<td align="center" class="date14" width="15%">2011-11-04</td>
+</tr>
+<tr>
+<td align="center" background="../../images/sdhb_13.gif" colspan="3" height="1"></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="40"><table align="center" border="0" cellpadding="0" cellspacing="0" width="96%">
+<tr>
+<td align="center" bgcolor="#f9f9f9" class="pagenav" height="30">
+<script language="JavaScript"> 
+						createPageHTML(1,0,"index", "html");
+						
+					  </script>
+</td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td background="../../images/sdhb_96.gif" height="7"></td>
+</tr>
+</table></td>
+</tr>
+<tr width="100%">
+<td colspan="2" height="90">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="80%">
+<tr>
+<td align="center" class="date12" height="20">主办单位：山东省环境保护厅 联系电话：0531-86106112</td>
+</tr>
+<tr>
+<td align="center" class="date12" height="20">地址：济南市经十路3377号，邮编：250101</td>
+</tr>
+<tr>
+<td align="center" class="date12" height="20">网站管理：山东省环境保护宣传教育中心
+  </td>
+</tr>
+<tr>
+<td align="center" class="date12" height="20">技术支持：山东省环境信息与监控中心  </td>
+</tr>
+<tr>
+<td align="center" class="date12" height="20">Copyright 2012 sdein.gov.cn   鲁ICP备：09042362</td>
+</tr>
+</table>
+<p style="text-align:center;"><script type="text/javascript">document.write(unescape("%3Cspan id='_ideConac' %3E%3C/span%3E%3Cscript src='http://dcs.conac.cn/js/16/000/0000/40696241/CA160000000406962410001.js' type='text/javascript'%3E%3C/script%3E"));</script></p>
+</td>
+</tr>
+</table>
+<script language="javascript">
+		    
+		    var ss="#"+1067
+			      
+            $(ss).addClass("current");
+		 </script>
+<!-- PHPStat Start -->
+<script language="javascript">var __$nodeid='1067';</script>
+<script charset="utf-8" language="JavaScript" src="http://www.sdein.gov.cn/countdir/phpstat/count/abceffgh/abceffgh.js"></script><noscript><img alt="" src="http://www.sdein.gov.cn/countdir/phpstat/count/abceffgh/abceffgh.php" style="border:0"/></noscript>
+<!-- /PHPStat End -->
+</body></html>
+{% load staticfiles %}<script type="text/javascript" src="{% static 'js/jquery-3.2.0.min.js' %}"></script><script type="text/javascript" src="{% static 'js/iframe_common.js' %}"></script><script type="text/javascript" src="{% static 'js/iframe_list.js' %}"></script>

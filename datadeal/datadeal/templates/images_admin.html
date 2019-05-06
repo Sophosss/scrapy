@@ -1,0 +1,69 @@
+{% extends 'xadmin/base_site.html' %}
+{% load i18n l10n %}
+{% load xadmin_tags %}
+{% load static %}
+{% block title %}
+    图片管理
+{% endblock %}
+{% block content-nav %}{% endblock %}
+
+{% block breadcrumbs %}
+<ul class="breadcrumb">
+<li><a href="{% url 'xadmin:index' %}">{% trans 'Home' %}</a></li>
+<li>图片管理</li>
+</ul>
+{% endblock %}
+{% block content %}
+<style type="text/css">
+    .spanlist{float:left;font-size:12px;width:100%;font-weight: bold;}
+</style>
+
+<div class="content" style="overflow:hidden;">
+    <div style="position: relative;">
+        {% for item in img_list.object_list %}
+        <div style="margin:30px;width: 300px;height: 200px;float:left;border:0px solid #000;position: relative;">
+            <div style="position: absolute;top:-60px;width: 100%;height:60px;background: #fff;-webkit-filter:blur(1px) opacity(0.5);"></div>
+            <a href="/medias/images/{{item.url}}" target="blank">
+                <img src="/medias/images/{{item.url}}" style="width:100%;">
+            </a>
+            <div style="position: absolute;top:200px;left:-2px;width: 102%;height:60px;background: #fff;-webkit-filter:blur(1px) opacity(1);"></div>
+            <p style="float:left;position: absolute;top:200px;z-index:100;">
+                <span class="spanlist">文件名：{{item.url}}</span>
+                <span class="spanlist">创建时间：{{item.ctime}}</span>
+            </p>
+        </div>
+        
+        {% endfor %}
+    </div>
+</div>
+<ul class="pagination" style="width:100%;">
+    <li><span><span class="text-success">{{p.count}}</span> 图片管理</span></li>
+    {% for page in img_list.pages %}
+         {% if page %}
+              {% ifequal page img_list.number %}
+                   <li><span class="this-page">{{ page }}</span></li>
+              {% else %}
+                   <li><a href="?page={{page}}">{{ page }}</a></li>
+              {% endifequal %}
+         {% else %}
+              <li><span class="dot-page">...</span> </li>
+         {% endif %}
+    {% endfor %}
+    <button type="submit" class="default btn btn-primary hide-xs" name="_save" data-loading-text="打包中.." style="float:right;margin-right:5%;"><i class="fa"></i>全部打包下载</button>
+</ul>
+
+<script type="text/javascript">
+  $('.btn').click(function(){
+      $(this).button('loading');
+      $.ajax({
+          'url':'/zip_files/',
+          'type':'POST',
+          'data':{'type':'images'},
+          success:function(msg){
+              window.location.href = msg;
+              $('.btn').button('reset');
+          }
+      })
+  })
+</script>
+{% endblock %}

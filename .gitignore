@@ -1,0 +1,5 @@
+*.pyc
+datadeal/datadeal/medias/
+searchInfo/.scrapy/
+selenium/images/
+selenium/url_list.txt

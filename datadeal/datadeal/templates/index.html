@@ -1,0 +1,124 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <script type="text/javascript" src="{% static 'js/jquery-3.2.0.min.js' %}"></script>
+    <style type="text/css">
+        .iframe{width: 100%;height: 400px;float: left;overflow-x: scroll;}
+        .url_input{margin-bottom: 10px;padding-left:30%;width: 100%;float: left;}
+        .list_form,.detail_form{width: 100%;}
+        .list,.detail{width: 40%;margin: 1% 3%;overflow: hidden;float: left;}
+        .table td{border:1px solid #ccc;}
+        .head{width: 80%;overflow: hidden;margin:2% auto;padding-left: 20%;}
+        .rect{width: 100px;height: 100px;float: left;border: 1px solid #ccc;text-align:center;cursor: pointer;}
+        .rect:hover{background: #eee}
+        .selected{background: #ddd}
+    </style>
+</head>
+<body>
+    <div class="head">
+    {% for k,val in kind %}
+        <div class="rect" value="{{k}}">
+        {{val}}
+        </div>
+    {% endfor %}
+    </div>
+    <div class="list" style="display:none;">
+        <div class="url_input">
+            <input type="text" data-for="list_iframe" id="list_url" placeholder="请输入列表页网址" />
+            <button class="submit">预览</button>
+        </div>
+        <iframe class="iframe list_iframe" src="list/"></iframe>
+        <div class="list_form">
+            <div>循环体：<input style="width:70%;" type="text" name="cycle" /></div>
+            <table class="list_table"></table>
+        </div>
+    </div>
+    
+    <div class="detail" style="display:none;">
+        <div class="url_input">
+            <input type="text" data-for="detail_iframe" id="detail_url" placeholder="请输入详情页网址" />
+            <button class="submit">预览</button>
+        </div>
+        <iframe class="iframe detail_iframe" src="detail/"></iframe>
+        <div class="detail_form">
+            <table class="detail_table"></table>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $('.submit').click(function(){
+        var frame = $(this).siblings('input').attr('data-for');
+        var url = $(this).siblings('input').val();
+        $.ajax({
+            url:'/back_html/',
+            type:'POST',
+            data:{'url':url,'frame':frame},
+            success:function(msg){
+                $('.'+frame).attr('src',msg);
+            }
+        })
+    })
+    
+
+    function delete_tr(that,tablename,xpath){
+        $(that).parent().parent().remove();
+        if(tablename=='list_table'){
+            $('.list_iframe')[0].contentWindow.del_v(xpath);
+        }else if(tablename=='detail_table'){
+            $('.detail_iframe')[0].contentWindow.del_v(xpath);
+        }
+    }
+    function change_xpath(that,v){
+        var val = $(that).val();
+        $(that).parent().parent().children('td').eq(1).children('input').val(v+val);
+    }
+    function set_cycle(val){
+        $('input[name="cycle"]').val(val);
+    }
+    function set_variable(v_list,tablename){
+        var up_name = '';
+        if(tablename=='detail_table'){
+            up_name = '<td>向上</td><td>删除</td>';  
+        }
+        var html = '<tr><td>字段</td><td>规则</td><td>类型</td>'+up_name+'</tr>';
+        for(v in v_list){
+            var up_td='';
+            v_list[v] = v_list[v].replace(/\'/g,'danyin');
+            if(tablename=='detail_table'){
+                up_td = '<td><button onclick="up_tag(\''+tablename+'\',\''+v_list[v]+'\');">向上</button></td><td><button onclick="delete_tr(this,\''+tablename+'\',\''+v_list[v]+'\');">删除</button></td>';
+            }
+            html += '<tr><td style="width:20%;"><input type="text" style="width:80%;" value="name_'+v+'" /></td><td><input type="text" value="'+v_list[v]+'/text()'+'" /></td><td><select onchange="change_xpath(this,\''+v_list[v]+'\');"><option value="/text()">文本</option><option value="/@href">链接</option><option value="">子标签文本</option></select></td>'+up_td+'</tr>';
+        }
+        $('.'+tablename).html(html);
+    }
+    function up_tag(tablename,xpath){
+        if(tablename=='list_table'){
+
+        }else if(tablename=='detail_table'){
+            $('.detail_iframe')[0].contentWindow.childrenup(xpath);
+        }
+    }
+
+    $('.rect').click(function(){
+        $('.rect').removeClass('selected');
+        $(this).addClass('selected');
+        var val = $(this).attr('value');
+        if(val==1){
+            $('.list').show();
+            $('.detail').show();
+        }else if(val==2){
+            $('.list').show();
+            $('.detail').hide();
+        }else if(val==3){
+            $('.list').hide();
+            $('.detail').show();
+        }else{
+            $('.list').hide();
+            $('.detail').hide();
+        }
+    })
+    </script>
+</body>
+</html>
